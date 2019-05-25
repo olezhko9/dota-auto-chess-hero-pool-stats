@@ -1,7 +1,24 @@
 import os
 import time
+import plotly.plotly as py
+import plotly.graph_objs as go
+import plotly.tools
 from dac.ocr import recognize_heroes_on_image, recognize_heroes_on_image_file
 from util.sreenshooter import screenshot
+
+plotly.tools.set_credentials_file(username='olezhko', api_key='7HhZ0uvGRZoW1JBI44E1')
+
+
+def plot_bar(heroes_stat):
+    labels = [key for key in heroes_stat.keys()]
+    values = [heroes_stat[key] for key in heroes_stat.keys()]
+
+    data = [go.Bar(
+        x=labels,
+        y=values
+    )]
+
+    py.plot(data, filename='heroes.html', fileopt='overwrite', auto_open=False)
 
 
 def main():
@@ -11,6 +28,7 @@ def main():
     prev_heroes = []
     while True:
         time.sleep(1)
+        # TODO: добавить поддержку разных разрешений
         screen = screenshot((280, 365, 1350+280, 35+365))
         heroes = recognize_heroes_on_image(screen, show=False)
         if sum([hero[1] for hero in heroes]) == 5 and prev_heroes != heroes:
@@ -24,9 +42,11 @@ def main():
             prev_heroes = heroes
 
 
+
 def test():
     """ recognize from files """
     heroes_chart = {}
+
     for img in os.listdir('./images'):
         heroes = recognize_heroes_on_image_file('./images/' + img, show=False)
         print(img, heroes)
@@ -36,15 +56,11 @@ def test():
                 heroes_chart[hero[0]] = hero[1]
             else:
                 heroes_chart[hero[0]] += hero[1]
+        plot_bar(heroes_chart)
 
     print(heroes_chart)
 
 
 if __name__ == '__main__':
-    main()
-    # test()
-
-
-
-
-
+    # main()
+    test()
