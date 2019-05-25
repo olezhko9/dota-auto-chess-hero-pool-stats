@@ -1,21 +1,31 @@
 import pytesseract
 import cv2
+import numpy as np
 
 from dac.hero_list import all_heroes
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 
-def recognize_heroes_on_image(image_path, show=False):
+def recognize_heroes_on_image_file(filename, show=False):
     # x, y, w, h
     crop = (280, 365, 1350, 35)
-    image = cv2.imread(image_path)
+    image = cv2.imread(filename, 3)
 
     # обрезаем область с именами героев
     crop_img = image[crop[1]:crop[1] + crop[3], crop[0]:crop[0] + crop[2]]
 
+    return recognize_heroes(crop_img, show)
+
+
+def recognize_heroes_on_image(image, show=False):
+    image = np.array(image)
+    return recognize_heroes(image, show)
+
+
+def recognize_heroes(image, show):
     # насыщенные буквы на черном фоне
-    retval, saturated_image = cv2.threshold(crop_img, 150, 255, cv2.THRESH_BINARY)
+    retval, saturated_image = cv2.threshold(image, 150, 255, cv2.THRESH_BINARY)
 
     # переводим в оттенки серого
     grayscaled = cv2.cvtColor(saturated_image, cv2.COLOR_BGR2GRAY)
