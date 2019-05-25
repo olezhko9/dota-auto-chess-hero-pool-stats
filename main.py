@@ -1,11 +1,12 @@
 import pytesseract
 import cv2
 import os
+from dac_heroes.list import all_heroes
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 
-def recognize_heroes_on_image(image_path, show=False):
+def recognize_heroes_text_on_image(image_path, show=False):
     # x, y, w, h
     crop = (280, 365, 1350, 35)
     image = cv2.imread(image_path)
@@ -35,10 +36,28 @@ def recognize_heroes_on_image(image_path, show=False):
     return pytesseract.image_to_string(bw_image, lang='eng', config='--psm 7')
 
 
+def get_heroes_from_text(text):
+    # TODO: Io распознается как lo - исправить
+    hero_list = []
+    for hero in all_heroes:
+        hero_count = text.count(hero)
+        if hero_count:
+            hero_list.append((hero, hero_count))
+
+    return hero_list
+
+
 if __name__ == '__main__':
 
+    heroes_in_file = {}
+
     for img in os.listdir('./images'):
-        print(img)
-        text = recognize_heroes_on_image('./images/' + img, show=False)
-        print(text)
+        text = recognize_heroes_text_on_image('./images/' + img, show=False)
+        print(img, text)
         print()
+        heroes = get_heroes_from_text(text)
+        heroes_in_file[img] = heroes
+
+    for file, heroes in heroes_in_file.items():
+        print(file, heroes)
+
