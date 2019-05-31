@@ -3,3 +3,6 @@ venv
 __pycache__
 images
 heroes.html
+model.h5
+model.json
+data_collector.py
