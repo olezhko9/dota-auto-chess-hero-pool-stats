@@ -1,9 +1,8 @@
 import os
 from PIL import Image
 import numpy as np
-from keras.datasets import cifar10
 from keras.models import Sequential
-from keras.layers import Dense, Flatten, Activation
+from keras.layers import Dense, Flatten
 from keras.layers import Dropout
 from keras.layers.convolutional import Conv2D, MaxPooling2D
 from keras.utils import np_utils
@@ -11,7 +10,9 @@ from keras.optimizers import SGD
 
 # Задаем seed для повторяемости результатов
 np.random.seed(42)
-labels = ['Abaddon', 'Chaos Knight', 'Tinker', 'Tiny']
+labels = []
+img_names = []
+
 
 def load_data(datapath):
     x_train = []
@@ -19,6 +20,11 @@ def load_data(datapath):
     y_train = []
     for file in os.listdir(datapath):
         file_label = file.split(' - ')[0]
+        img_names.append(file_label)
+
+        if file_label not in labels:
+            labels.append(file_label)
+
         y_train.append([labels.index(file_label)])
 
         im = Image.open(datapath + file)
@@ -36,7 +42,8 @@ X_train = X_train.astype('float32')
 X_train /= 255
 
 nb_classes = len(labels)
-nb_epoch = 25
+print(nb_classes)
+nb_epoch = 30
 
 Y_train = np_utils.to_categorical(Y_train, nb_classes)
 
@@ -85,4 +92,4 @@ print("Точность работы на тестовых данных: %.2f%%"
 y_pred = model.predict(X_train)
 
 for i, pred in enumerate(y_pred):
-    print(i, np.argmax(pred))
+    print(i, img_names[i], labels[np.argmax(pred)])
