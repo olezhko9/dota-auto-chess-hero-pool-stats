@@ -3,7 +3,7 @@ from dac.ocr import recognize_heroes_on_image_file
 import os
 
 
-def crop_heroes():
+def crop_heroes(images_path):
     crop_config = {
         'x': 285,
         'y': 150,
@@ -13,8 +13,8 @@ def crop_heroes():
     }
 
     unique_hero_img_count = 0
-    for filename in os.listdir('../images'):
-        filename = '../images/' + filename
+    for filename in os.listdir(images_path):
+        filename = images_path + filename
         if os.path.isdir(filename):
             continue
         heroes = recognize_heroes_on_image_file(filename, show=False)
@@ -23,7 +23,6 @@ def crop_heroes():
         if len(heroes) == 5:
             im = Image.open(filename)
 
-            hero_img_width = (1560 - 360) / 5
             for i in range(5):
                 hero_crop = im.crop((crop_config['x'] + crop_config['margin'] * (i + 1) + crop_config['w'] * i,
                                      crop_config['y'],
@@ -32,5 +31,9 @@ def crop_heroes():
                                      ))
 
                 hero_crop.thumbnail((36, 40))
-                hero_crop.save("../images/heroes/" + heroes[i] + " - " + str(unique_hero_img_count) + ".png")
+                hero_crop.save(images_path + "heroes/" + heroes[i] + " - " + str(unique_hero_img_count) + ".png")
                 unique_hero_img_count += 1
+
+
+if __name__ == '__main__':
+    crop_heroes('../../images/')
