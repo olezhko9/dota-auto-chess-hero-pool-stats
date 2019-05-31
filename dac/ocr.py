@@ -50,8 +50,14 @@ def get_heroes_from_text(text):
     # TODO: Io распознается как lo - исправить
     hero_list = []
     for hero in all_heroes:
-        hero_count = text.count(hero)
-        if hero_count:
-            hero_list.append((hero, hero_count))
+        hero_index = -1
+        while True:
+            hero_index = text.find(hero, hero_index + 1)
+            if hero_index == -1:
+                break
+            else:
+                hero_list.append((hero_index, hero))
+
+    hero_list = [h[1] for h in sorted(hero_list, key=lambda x: x[0])]
 
     return hero_list

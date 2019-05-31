@@ -52,10 +52,10 @@ def test():
         print(img, heroes)
 
         for hero in heroes:
-            if heroes_chart.get(hero[0]) is None:
-                heroes_chart[hero[0]] = hero[1]
+            if heroes_chart.get(hero) is None:
+                heroes_chart[hero] = 1
             else:
-                heroes_chart[hero[0]] += hero[1]
+                heroes_chart[hero] += 1
         plot_bar(heroes_chart)
 
     print(heroes_chart)
