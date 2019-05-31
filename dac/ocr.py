@@ -18,8 +18,12 @@ def recognize_heroes_on_image_file(filename, show=False):
     return recognize_heroes(crop_img, show)
 
 
-def recognize_heroes_on_image(image, show=False):
+def recognize_heroes_on_image(image, need_crop=False, show=False):
     image = np.array(image)
+    if need_crop:
+        crop = (280, 365, 1350, 35)
+        image = image[crop[1]:crop[1] + crop[3], crop[0]:crop[0] + crop[2]]
+
     return recognize_heroes(image, show)
 
 

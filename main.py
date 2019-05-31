@@ -32,7 +32,7 @@ def main():
         # TODO: добавить поддержку разных разрешений
         screen = screenshot((280, 365, 1350+280, 35+365))
         heroes = recognize_heroes_on_image(screen, show=False)
-        if sum([hero[1] for hero in heroes]) == 5 and prev_heroes != heroes:
+        if len(heroes) == 5 and prev_heroes != heroes:
             print(heroes)
             for hero in heroes:
                 if heroes_chart.get(hero[0]) is None:
@@ -46,16 +46,20 @@ def main():
 def test():
     """ recognize from files """
     heroes_chart = {}
-
-    for img in os.listdir('./images'):
-        heroes = recognize_heroes_on_image_file('./images/' + img, show=False)
+    images_path = './images'
+    for img in os.listdir(images_path):
+        image_path = os.path.join(images_path, img)
+        if os.path.isdir(image_path):
+            continue
+        heroes = recognize_heroes_on_image_file(image_path, show=False)
         print(img, heroes)
 
-        for hero in heroes:
-            if heroes_chart.get(hero) is None:
-                heroes_chart[hero] = 1
-            else:
-                heroes_chart[hero] += 1
+        if len(heroes) == 5:
+            for hero in heroes:
+                if heroes_chart.get(hero) is None:
+                    heroes_chart[hero] = 1
+                else:
+                    heroes_chart[hero] += 1
         plot_bar(heroes_chart)
 
     print(heroes_chart)
