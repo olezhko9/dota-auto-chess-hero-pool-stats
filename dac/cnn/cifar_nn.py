@@ -17,27 +17,26 @@ class CifarNet:
     def __init__(self):
         self.nb_classes = 0
         self.model = None
-        self.labels = None
 
     def load_data(self, datapath):
         x_train = []
         y_train = []
-        labels = []
+        labels_name = []
         img_names = []
         for file in os.listdir(datapath):
             file_label = file.split(' - ')[0]
             img_names.append(file_label)
 
-            if file_label not in labels:
-                labels.append(file_label)
+            if file_label not in labels_name:
+                labels_name.append(file_label)
 
-            y_train.append([labels.index(file_label)])
+            y_train.append([labels_name.index(file_label)])
 
             im = Image.open(datapath + file)
             im = np.array(im)
             x_train.append(im)
-        self.nb_classes = len(labels)
-        return np.array(x_train), np.array(y_train)
+        self.nb_classes = len(labels_name)
+        return np.array(x_train), np.array(y_train), labels_name
 
     def preprocess_data(self, X_train, Y_train):
         X_train = X_train.astype('float32')
@@ -101,17 +100,17 @@ class CifarNet:
 
 if __name__ == '__main__':
     cnn = CifarNet()
-    X_train, Y_train = cnn.load_data("../../images/heroes/")
+    X_train, Y_train, labels = cnn.load_data("../../images/heroes/")
     X_train, Y_train = cnn.preprocess_data(X_train, Y_train)
     print(X_train.shape)
     print(Y_train.shape)
 
-    cnn.fit(X_train, Y_train, nb_epoch=30)
-    cnn.save_model()
-    # cnn.load_model()
+    # cnn.fit(X_train, Y_train, nb_epoch=30)
+    # cnn.save_model()
+    cnn.load_model()
     y_pred = cnn.predict(X_train)
 
     for i, pred in enumerate(y_pred):
-        print(i, np.argmax(Y_train[i]), np.argmax(pred))
+        print(i, labels[np.argmax(Y_train[i])], labels[np.argmax(pred)])
 
 
