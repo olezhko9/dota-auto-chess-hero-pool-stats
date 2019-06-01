@@ -1,13 +1,12 @@
 import os
 import time
+import numpy as np
 import plotly.graph_objs as go
-import plotly.tools
 from plotly.offline import plot
 from dac.ocr import recognize_heroes_on_image, recognize_heroes_on_image_file
 from util.sreenshooter import screenshot
 
 # TODO: pip install dash dash-render dash-html-components dash-core-components
-plotly.tools.set_credentials_file(username='olezhko', api_key='7HhZ0uvGRZoW1JBI44E1')
 
 
 def plot_bar(heroes_stat):
@@ -65,6 +64,32 @@ def test():
     print(heroes_chart)
 
 
+def cnn():
+    from dac.cnn.cifar_nn import CifarNet
+    from dac.cnn.hero_img_croper import crop_heroes
+
+    cifar = CifarNet()
+    cifar.load_model()
+
+    while True:
+        time.sleep(2)
+        screen = screenshot()
+        cropped_heroes = crop_heroes(screen)
+        if len(cropped_heroes) == 5:
+            heroes = []
+            for cropped_hero in cropped_heroes:
+                cropped_hero = np.array(cropped_hero[1])
+                print(cropped_hero.shape)
+                heroes.append(cropped_hero)
+
+            X_test, _ = cifar.preprocess_data(np.array(heroes), None)
+            y_pred = cifar.predict(X_test)
+
+            for pred in y_pred:
+                print(np.argmax(pred))
+
+
 if __name__ == '__main__':
     # main()
-    test()
+    # test()
+    cnn()

@@ -17,6 +17,7 @@ class CifarNet:
     def __init__(self):
         self.nb_classes = 0
         self.model = None
+        self.dirname = os.path.dirname(__file__)
 
     def load_data(self, datapath):
         x_train = []
@@ -41,7 +42,8 @@ class CifarNet:
     def preprocess_data(self, X_train, Y_train):
         X_train = X_train.astype('float32')
         X_train /= 255
-        Y_train = np_utils.to_categorical(Y_train, self.nb_classes)
+        if Y_train is not None:
+            Y_train = np_utils.to_categorical(Y_train, self.nb_classes)
         return X_train, Y_train
 
     def _get_model(self):
@@ -72,25 +74,22 @@ class CifarNet:
             self.model = self._get_model()
         self.model.fit(X_train, Y_train, epochs=nb_epoch, shuffle=True, verbose=2)
 
-    # scores = model.evaluate(X_train, Y_train, verbose=0)
-    # print("Точность работы на тестовых данных: %.2f%%" % (scores[1]*100))
-
     def predict(self, X_test):
         y_pred = self.model.predict(X_test)
         return y_pred
 
     def save_model(self):
         model_json = self.model.to_json()
-        with open("model.json", "w") as json_file:
+        with open(os.path.join(self.dirname, 'model.json'), "w") as json_file:
             json_file.write(model_json)
-        self.model.save_weights("model.h5")
+        self.model.save_weights(os.path.join(self.dirname, 'model.h5'))
 
     def load_model(self):
-        json_file = open('model.json', 'r')
+        json_file = open(os.path.join(self.dirname, 'model.json'), 'r')
         loaded_model_json = json_file.read()
         json_file.close()
         self.model = model_from_json(loaded_model_json)
-        self.model.load_weights("model.h5")
+        self.model.load_weights(os.path.join(self.dirname, 'model.h5'))
 
         sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True)
         self.model.compile(loss='categorical_crossentropy',
@@ -105,12 +104,11 @@ if __name__ == '__main__':
     print(X_train.shape)
     print(Y_train.shape)
 
-    # cnn.fit(X_train, Y_train, nb_epoch=30)
-    # cnn.save_model()
-    cnn.load_model()
+    cnn.fit(X_train, Y_train, nb_epoch=35)
+    cnn.save_model()
+    # cnn.load_model()
     y_pred = cnn.predict(X_train)
 
     for i, pred in enumerate(y_pred):
         print(i, labels[np.argmax(Y_train[i])], labels[np.argmax(pred)])
-
 
