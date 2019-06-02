@@ -8,6 +8,7 @@ from keras.layers.convolutional import Conv2D, MaxPooling2D
 from keras.utils import np_utils
 from keras.optimizers import SGD
 from keras.models import model_from_json
+from dac.hero_list import all_heroes
 
 np.random.seed(42)
 
@@ -31,12 +32,13 @@ class CifarNet:
             if file_label not in labels_name:
                 labels_name.append(file_label)
 
-            y_train.append([labels_name.index(file_label)])
+            # y_train.append([labels_name.index(file_label)])
+            y_train.append([all_heroes.index(file_label)])
 
             im = Image.open(datapath + file)
             im = np.array(im)
             x_train.append(im)
-        self.nb_classes = len(labels_name)
+        self.nb_classes = len(all_heroes)
         return np.array(x_train), np.array(y_train), labels_name
 
     def preprocess_data(self, X_train, Y_train):
@@ -110,5 +112,5 @@ if __name__ == '__main__':
     y_pred = cnn.predict(X_train)
 
     for i, pred in enumerate(y_pred):
-        print(i, labels[np.argmax(Y_train[i])], labels[np.argmax(pred)])
+        print(i, all_heroes[np.argmax(Y_train[i])], all_heroes[np.argmax(pred)])
 

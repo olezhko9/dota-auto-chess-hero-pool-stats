@@ -67,6 +67,7 @@ def test():
 def cnn():
     from dac.cnn.cifar_nn import CifarNet
     from dac.cnn.hero_img_croper import crop_heroes
+    from dac.hero_list import all_heroes
 
     cifar = CifarNet()
     cifar.load_model()
@@ -77,16 +78,17 @@ def cnn():
         cropped_heroes = crop_heroes(screen)
         if len(cropped_heroes) == 5:
             heroes = []
-            for cropped_hero in cropped_heroes:
-                cropped_hero = np.array(cropped_hero[1])
-                print(cropped_hero.shape)
+            print('----- TRUE -----')
+            for hero_name, cropped_hero in cropped_heroes:
+                cropped_hero = np.array(cropped_hero)
+                print(hero_name)
                 heroes.append(cropped_hero)
 
             X_test, _ = cifar.preprocess_data(np.array(heroes), None)
             y_pred = cifar.predict(X_test)
-
+            print('----- PRED -----')
             for pred in y_pred:
-                print(np.argmax(pred))
+                print(all_heroes[np.argmax(pred)], pred[np.argmax(pred)])
 
 
 if __name__ == '__main__':
