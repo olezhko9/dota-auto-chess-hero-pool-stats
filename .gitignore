@@ -2,4 +2,7 @@
 venv
 __pycache__
 
+images
+
 heroes.html
+dac/cnn/data_collector.py
