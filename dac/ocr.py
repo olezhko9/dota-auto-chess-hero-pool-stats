@@ -18,8 +18,12 @@ def recognize_heroes_on_image_file(filename, show=False):
     return recognize_heroes(crop_img, show)
 
 
-def recognize_heroes_on_image(image, show=False):
+def recognize_heroes_on_image(image, need_crop=False, show=False):
     image = np.array(image)
+    if need_crop:
+        crop = (280, 365, 1350, 35)
+        image = image[crop[1]:crop[1] + crop[3], crop[0]:crop[0] + crop[2]]
+
     return recognize_heroes(image, show)
 
 
@@ -50,8 +54,14 @@ def get_heroes_from_text(text):
     # TODO: Io распознается как lo - исправить
     hero_list = []
     for hero in all_heroes:
-        hero_count = text.count(hero)
-        if hero_count:
-            hero_list.append((hero, hero_count))
+        hero_index = -1
+        while True:
+            hero_index = text.find(hero, hero_index + 1)
+            if hero_index == -1:
+                break
+            else:
+                hero_list.append((hero_index, hero))
+
+    hero_list = [h[1] for h in sorted(hero_list, key=lambda x: x[0])]
 
     return hero_list
