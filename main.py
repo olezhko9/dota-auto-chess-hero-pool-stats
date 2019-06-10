@@ -2,23 +2,39 @@ import os
 import time
 import numpy as np
 import plotly.graph_objs as go
+from plotly import tools
 from plotly.offline import plot
 from dac.ocr import recognize_heroes_on_image, recognize_heroes_on_image_file
 from util.sreenshooter import screenshot
 
+from dac.hero_list import all_heroes
+
 # TODO: pip install dash dash-render dash-html-components dash-core-components
 
 
-def plot_bar(heroes_stat):
-    labels = [key for key in heroes_stat.keys()]
-    values = [heroes_stat[key] for key in heroes_stat.keys()]
+def plot_bar(heroes_stat, species_chart, classes_chart):
 
-    data = [go.Bar(
-        x=labels,
-        y=values
-    )]
+    bar_1 = go.Bar(
+         x=[key for key in heroes_stat.keys()],
+         y=[heroes_stat[key] for key in heroes_stat.keys()]
+    )
 
-    plot(data, filename='heroes.html', auto_open=False)
+    bar_2 = go.Bar(
+         x=[key for key in species_chart.keys()],
+         y=[species_chart[key] for key in species_chart.keys()]
+    )
+
+    bar_3 = go.Bar(
+         x=[key for key in classes_chart.keys()],
+         y=[classes_chart[key] for key in classes_chart.keys()]
+    )
+
+    fig = tools.make_subplots(rows=3, cols=1, subplot_titles=('Heroes', 'Species', 'Classes'))
+    fig.append_trace(bar_1, 1, 1)
+    fig.append_trace(bar_2, 2, 1)
+    fig.append_trace(bar_3, 3, 1)
+
+    plot(fig, filename='heroes.html', auto_open=False)
 
 
 def main():
@@ -45,6 +61,8 @@ def main():
 def test():
     """ recognize from files """
     heroes_chart = {}
+    classes_chart = {}
+    species_chart = {}
     images_path = './images'
     for img in os.listdir(images_path):
         image_path = os.path.join(images_path, img)
@@ -59,7 +77,20 @@ def test():
                     heroes_chart[hero] = 1
                 else:
                     heroes_chart[hero] += 1
-        plot_bar(heroes_chart)
+
+                for species in all_heroes[hero].species:
+                    if species_chart.get(species) is None:
+                        species_chart[species] = 1
+                    else:
+                        species_chart[species] += 1
+
+                for classes in all_heroes[hero].classes:
+                    if classes_chart.get(classes) is None:
+                        classes_chart[classes] = 1
+                    else:
+                        classes_chart[classes] += 1
+
+        plot_bar(heroes_chart, species_chart, classes_chart)
 
     print(heroes_chart)
 
@@ -93,5 +124,5 @@ def cnn():
 
 if __name__ == '__main__':
     # main()
-    # test()
-    cnn()
+    test()
+    # cnn()
