@@ -1,28 +1,22 @@
 import pytesseract
 import cv2
 import numpy as np
-
+from PIL import Image
+from util.img_croper import crop_hero_text
 from dac.hero_list import all_heroes
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 
 
-def recognize_heroes_on_image_file(filename, show=False):
-    # x, y, w, h
-    crop = (280, 365, 1350, 35)
-    image = cv2.imread(filename, 3)
-
-    # обрезаем область с именами героев
-    crop_img = image[crop[1]:crop[1] + crop[3], crop[0]:crop[0] + crop[2]]
-
-    return recognize_heroes(crop_img, show)
-
-
 def recognize_heroes_on_image(image, need_crop=False, show=False):
+
+    if type(image) == str:
+        image = Image.open(image)
+
     image = np.array(image)
+
     if need_crop:
-        crop = (280, 365, 1350, 35)
-        image = image[crop[1]:crop[1] + crop[3], crop[0]:crop[0] + crop[2]]
+        image = crop_hero_text(image)
 
     return recognize_heroes(image, show)
 
