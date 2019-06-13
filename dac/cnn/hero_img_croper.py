@@ -1,5 +1,5 @@
 from PIL import Image
-from dac.ocr import recognize_heroes_on_image
+from dac.ocr.heroes_on_image import recognize_heroes_on_image
 import os
 
 

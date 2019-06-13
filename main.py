@@ -1,7 +1,7 @@
 import os
 import time
 import numpy as np
-from dac.ocr import recognize_heroes_on_image, recognize_heroes_on_image_file
+from dac.ocr.heroes_on_image import recognize_heroes_on_image, recognize_heroes_on_image_file
 from util.sreenshooter import screenshot
 from util.bar_plotter import plot_bar
 
