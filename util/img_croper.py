@@ -27,7 +27,7 @@ def crop_heroes(image):
 
 def crop_hero_text(image):
     # TODO: добавить поддержку разных разрешений
-    crop = (280, 365, 1350, 35)
+    crop = (360, 380, 1210, 25)
     return image[crop[1]:crop[1] + crop[3], crop[0]:crop[0] + crop[2]]
 
 
