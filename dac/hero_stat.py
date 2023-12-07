@@ -14,7 +14,6 @@ def get_stat_from_screen_with_ocr():
     species_chart = {}
     prev_heroes = []
     while True:
-        time.sleep(1)
         screen = screenshot()
         heroes = heroes_on_image.recognize_heroes_on_image(screen, need_crop=True, show=False)
         if len(heroes) == 5 and prev_heroes != heroes:
@@ -25,17 +24,17 @@ def get_stat_from_screen_with_ocr():
                 else:
                     heroes_chart[hero] += 1
 
-                for species in all_heroes[hero].species:
+                for species in all_heroes[hero].get("species"):
                     if species_chart.get(species) is None:
                         species_chart[species] = 1
                     else:
                         species_chart[species] += 1
 
-                for classes in all_heroes[hero].classes:
-                    if classes_chart.get(classes) is None:
-                        classes_chart[classes] = 1
-                    else:
-                        classes_chart[classes] += 1
+                hero_class = all_heroes[hero].get("class")
+                if classes_chart.get(hero_class) is None:
+                    classes_chart[hero_class] = 1
+                else:
+                    classes_chart[hero_class] += 1
             prev_heroes = heroes
             plot_bar(heroes_chart, species_chart, classes_chart)
 
@@ -93,7 +92,6 @@ def get_stat_from_screen_with_cnn():
             heroes = []
             for cropped_hero in cropped_heroes:
                 cropped_hero = np.array(cropped_hero)
-                # print(hero_name)
                 heroes.append(cropped_hero)
 
             X_test, _ = cifar.preprocess_data(np.array(heroes), None)

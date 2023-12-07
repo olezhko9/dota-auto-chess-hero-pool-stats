@@ -1,0 +1,868 @@
+{
+  "Abbaddon": {
+    "name": "Abbaddon",
+    "class": "Knight",
+    "species": [
+      "Undead"
+    ],
+    "gold_cost": 2
+  },
+  "Alchemist": {
+    "name": "Alchemist",
+    "class": "Warlock",
+    "species": [
+      "Goblin",
+      "Ogre"
+    ],
+    "gold_cost": 4
+  },
+  "Anti Mage": {
+    "name": "Anti-Mage",
+    "class": "Demon Hunter",
+    "species": [
+      "Elf"
+    ],
+    "gold_cost": 1
+  },
+  "Arc Warden": {
+    "name": "Arc Warden",
+    "class": "Shaman",
+    "species": [
+      "Kobold"
+    ],
+    "gold_cost": 5
+  },
+  "Axe": {
+    "name": "Axe",
+    "class": "Warrior",
+    "species": [
+      "Orc"
+    ],
+    "gold_cost": 1
+  },
+  "Batrider": {
+    "name": "Batrider",
+    "class": "Knight",
+    "species": [
+      "Troll"
+    ],
+    "gold_cost": 2
+  },
+  "Beastmaster": {
+    "name": "Beastmaster",
+    "class": "Hunter",
+    "species": [
+      "Orc"
+    ],
+    "gold_cost": 2
+  },
+  "Blood Seeker": {
+    "name": "Blood Seeker",
+    "class": "Shaman",
+    "species": [
+      "Orc"
+    ],
+    "gold_cost": 2
+  },
+  "Bounty Hunter": {
+    "name": "Bounty Hunter",
+    "class": "Assassin",
+    "species": [
+      "Goblin"
+    ],
+    "gold_cost": 1
+  },
+  "Brewmaster": {
+    "name": "Brewmaster",
+    "class": "Monk",
+    "species": [
+      "Pandaren"
+    ],
+    "gold_cost": 2
+  },
+  "Broodmother": {
+    "name": "Broodmother",
+    "class": "Hunter",
+    "species": [
+      "Aqir"
+    ],
+    "gold_cost": 4
+  },
+  "Centaur Warrunner": {
+    "name": "Centaur Warrunner",
+    "class": "Warrior",
+    "species": [
+      "Centaur"
+    ],
+    "gold_cots": 2
+  },
+  "Chaos Knight": {
+    "name": "Chaos Knight",
+    "class": "Knight",
+    "species": [
+      "Demon"
+    ],
+    "gold_cost": 2
+  },
+  "Chen": {
+    "name": "Chen",
+    "class": "Priest",
+    "species": [
+      "Orc"
+    ],
+    "gold_cost": 4
+  },
+  "Clinkz": {
+    "name": "Clinkz",
+    "class": "Hunter",
+    "species": [
+      "Undead"
+    ],
+    "gold_cost": 1
+  },
+  "Clockwerk": {
+    "name": "Clockwerk",
+    "class": "Mech",
+    "species": [
+      "Goblin"
+    ],
+    "gold_cost": 1
+  },
+  "Crystal Maiden": {
+    "name": "Crystal Maiden",
+    "class": "Mage",
+    "species": [
+      "Human"
+    ],
+    "gold_cost": 1
+  },
+  "Dark Willow": {
+    "name": "Dark Willow",
+    "class": "Wizard",
+    "species": [
+      "Elf"
+    ],
+    "gold_cost": 1
+  },
+  "Dazzle": {
+    "name": "Dazzle",
+    "class": "Priest",
+    "species": [
+      "Troll"
+    ],
+    "gold_cost": 1
+  },
+  "Death Prophet": {
+    "name": "Death Prophet",
+    "class": "Warlock",
+    "species": [
+      "Undead"
+    ],
+    "gold_cost": 4
+  },
+  "Disruptor": {
+    "name": "Disruptor",
+    "class": "Shaman",
+    "species": [
+      "Orc"
+    ],
+    "gold_cost": 5
+  },
+  "Doom": {
+    "name": "Doom",
+    "class": "Warrior",
+    "species": [
+      "Demon"
+    ],
+    "gold_cost": 4
+  },
+  "Dragon Knight": {
+    "name": "Dragon Knight",
+    "class": "Knight",
+    "species": [
+      "Dragon",
+      "Human"
+    ],
+    "gold_cost": 4
+  },
+  "Drow Ranger": {
+    "name": "Drow Ranger",
+    "class": "Hunter",
+    "species": [
+      "Undead"
+    ],
+    "gold_cost": 3
+  },
+  "Earthshaker": {
+    "name": "Earthshaker",
+    "class": "Shaman",
+    "species": [
+      "Tauren"
+    ],
+    "gold_cost": 4
+  },
+  "Earth Spirit": {
+    "name": "Earth Spirit",
+    "class": "Shaman",
+    "species": [
+      "Pandaren"
+    ],
+    "gold_cost": 4
+  },
+  "Elder Titan": {
+    "name": "Elder Titan",
+    "class": "Druid",
+    "species": [
+      "God",
+      "Tauren"
+    ],
+    "gold_cost": 5
+  },
+  "Ember Spirit": {
+    "name": "Ember Spirit",
+    "class": "Assassin",
+    "species": [
+      "Pandaren"
+    ],
+    "gold_cost": 4
+  },
+  "Enchantress": {
+    "name": "Enchantress",
+    "class": "Druid",
+    "species": [
+      "Beast"
+    ],
+    "gold_cost": 1
+  },
+  "Enigma": {
+    "name": "Enigma",
+    "class": "Warlock",
+    "species": [
+      "Elemental"
+    ],
+    "gold_cost": 5
+  },
+  "Faceless Void": {
+    "name": "Faceless Void",
+    "class": "Assassin",
+    "species": [
+      "Faceless"
+    ],
+    "gold_cost": 2
+  },
+  "Furion": {
+    "name": "Furion",
+    "class": "Druid",
+    "species": [
+      "Elf"
+    ],
+    "gold_cost": 2
+  },
+  "Grimstroke": {
+    "name": "Grimstroke",
+    "class": "Wizard",
+    "species": [
+      "Demon"
+    ],
+    "gold_cost": 4
+  },
+  "Gyrocopter": {
+    "name": "Gyrocopter",
+    "class": "Mech",
+    "species": [
+      "Dwarf"
+    ],
+    "gold_cost": 5
+  },
+  "Hoodwink": {
+    "name": "Hoodwink",
+    "class": "Hunter",
+    "species": [
+      "Beast"
+    ],
+    "gold_cost": 1
+  },
+  "Huskar": {
+    "name": "Huskar",
+    "class": "Warrior",
+    "species": [
+      "Troll"
+    ],
+    "gold_cost": 3
+  },
+  "Invoker": {
+    "name": "Invoker",
+    "class": "Mage",
+    "species": [
+      "Elf"
+    ],
+    "gold_cost": 5
+  },
+  "Io": {
+    "name": "Io",
+    "class": "Io",
+    "species": [
+      "Elf"
+    ],
+    "gold_cost": 5
+  },
+  "Jakiro": {
+    "name": "Jakiro",
+    "class": "Mage",
+    "species": [
+      "Dragon"
+    ],
+    "gold_cost": 5
+  },
+  "Juggernaut": {
+    "name": "Juggernaut",
+    "class": "Warrior",
+    "species": [
+      "Orc"
+    ],
+    "gold_cost": 2
+  },
+  "Keeper Of The Light": {
+    "name": "Keeper Of The Light",
+    "class": "Mage",
+    "species": [
+      "Human"
+    ],
+    "gold_cost": 4
+  },
+  "Kunkka": {
+    "name": "Kunkka",
+    "class": "Warrior",
+    "species": [
+      "Human"
+    ],
+    "gold_cost": 4
+  },
+  "Legion Commander": {
+    "name": "Legion Commander",
+    "class": "Knight",
+    "species": [
+      "Human"
+    ],
+    "gold_cost": 3
+  },
+  "Leshrac": {
+    "name": "Leshrac",
+    "class": "Druid",
+    "species": [
+      "God",
+      "Centaur"
+    ],
+    "gold_cost": 5
+  },
+  "Lich": {
+    "name": "Lich",
+    "class": "Mage",
+    "species": [
+      "Undead"
+    ],
+    "gold_cost": 4
+  },
+  "Lina": {
+    "name": "Lina",
+    "class": "Mage",
+    "species": [
+      "Human"
+    ],
+    "gold_cost": 2
+  },
+  "Lion": {
+    "name": "Lion",
+    "class": "Wizard",
+    "species": [
+      "Demon"
+    ],
+    "gold_cost": 1
+  },
+  "Lone Druid": {
+    "name": "Lone Druid",
+    "class": "Druid",
+    "species": [
+      "Beast"
+    ],
+    "gold_cost": 4
+  },
+  "Luna": {
+    "name": "Luna",
+    "class": "Knight",
+    "species": [
+      "Elf"
+    ],
+    "gold_cost": 1
+  },
+  "Lycan": {
+    "name": "Lycan",
+    "class": "Warrior",
+    "species": [
+      "Beast",
+      "Human"
+    ],
+    "gold_cost": 3
+  },
+  "Magnus": {
+    "name": "Magnus",
+    "class": "Assassin",
+    "species": [
+      "Centaur"
+    ],
+    "gold_cost": 4
+  },
+  "Marci": {
+    "name": "Marci",
+    "class": "Monk",
+    "species": [
+      "Elf"
+    ],
+    "gold_cost": 3
+  },
+  "Mars": {
+    "name": "Mars",
+    "class": "Warrior",
+    "species": [
+      "Orc"
+    ],
+    "gold_cost": 1
+  },
+  "Medusa": {
+    "name": "Medusa",
+    "class": "Hunter",
+    "species": [
+      "Naga"
+    ],
+    "gold_cost": 4
+  },
+  "Meepo": {
+    "name": "Meepo",
+    "class": "Mech",
+    "species": [
+      "Kobold"
+    ],
+    "gold_cost": 3
+  },
+  "Mirana": {
+    "name": "Mirana",
+    "class": "Hunter",
+    "species": [
+      "Elf"
+    ],
+    "gold_cost": 1
+  },
+  "Monkey King": {
+    "name": "Monkey King",
+    "class": "Monk",
+    "species": [
+      "Beast"
+    ],
+    "gold_cost": 4
+  },
+  "Morphling": {
+    "name": "Morphling",
+    "class": "Assassin",
+    "species": [
+      "Elemental"
+    ],
+    "gold_cost": 2
+  },
+  "Muerta": {
+    "name": "Muerta",
+    "class": "Hunter",
+    "species": [
+      "Undead"
+    ],
+    "gold_cost": 3
+  },
+  "Naga Siren": {
+    "name": "Naga Siren",
+    "class": "Wizard",
+    "species": [
+      "Naga"
+    ],
+    "gold_cost": 2
+  },
+  "Necrophos": {
+    "name": "Necrophos",
+    "class": "Warlock",
+    "species": [
+      "Undead"
+    ],
+    "gold_cost": 5
+  },
+  "Nyx Assassin": {
+    "name": "Nyx Assassin",
+    "class": "Assassin",
+    "species": [
+      "Aqir",
+      "Undead"
+    ],
+    "gold_cost": 4
+  },
+  "Ogre Magi": {
+    "name": "Ogre Magi",
+    "class": "Mage",
+    "species": [
+      "Ogre"
+    ],
+    "gold_cost": 1
+  },
+  "Omniknight": {
+    "name": "Omniknight",
+    "class": "Knight",
+    "species": [
+      "Human"
+    ],
+    "gold_cost": 3
+  },
+  "Oracle": {
+    "name": "Oracle",
+    "class": "Priest",
+    "species": [
+      "God"
+    ],
+    "gold_cost": 1
+  },
+  "Pangolier": {
+    "name": "Pangolier",
+    "class": "Assassin",
+    "species": [
+      "Beast"
+    ],
+    "gold_cost": 4
+  },
+  "Phantom Assassin": {
+    "name": "Phantom Assassin",
+    "class": "Assassin",
+    "species": [
+      "Elf"
+    ],
+    "gold_cost": 3
+  },
+  "Primal Beast": {
+    "name": "Primal Beast",
+    "class": "Warrior",
+    "species": [
+      "Beast"
+    ],
+    "gold_cost": 5
+  },
+  "Puck": {
+    "name": "Puck",
+    "class": "Mage",
+    "species": [
+      "Dragon",
+      "Elf"
+    ],
+    "gold_cost": 2
+  },
+  "Pudge": {
+    "name": "Pudge",
+    "class": "Warrior",
+    "species": [
+      "Undead"
+    ],
+    "gold_cost": 2
+  },
+  "Queen of Pain": {
+    "name": "Queen of Pain",
+    "class": "Assassin",
+    "species": [
+      "Demon"
+    ],
+    "gold_cost": 5
+  },
+  "Razor": {
+    "name": "Razor",
+    "class": "Mage",
+    "species": [
+      "Elemental"
+    ],
+    "gold_cost": 3
+  },
+  "Riki": {
+    "name": "Riki",
+    "class": "Assassin",
+    "species": [
+      "Satyr"
+    ],
+    "gold_cost": 3
+  },
+  "Rubick": {
+    "name": "Rubick",
+    "class": "Wizard",
+    "species": [
+      "God"
+    ],
+    "gold_cost": 3
+  },
+  "Sand King": {
+    "name": "Sand King",
+    "class": "Assassin",
+    "species": [
+      "Aqir"
+    ],
+    "gold_cost": 3
+  },
+  "Shadow Fiend": {
+    "name": "Shadow Fiend",
+    "class": "Warlock",
+    "species": [
+      "Demon"
+    ],
+    "gold_cost": 3
+  },
+  "Shadow Shaman": {
+    "name": "Shadow Shaman",
+    "class": "Shaman",
+    "species": [
+      "Troll"
+    ],
+    "gold_cost": 1
+  },
+  "Slardar": {
+    "name": "Slardar",
+    "class": "Warrior",
+    "species": [
+      "Naga"
+    ],
+    "gold_cost": 3
+  },
+  "Slark": {
+    "name": "Slark",
+    "class": "Assassin",
+    "species": [
+      "Naga"
+    ],
+    "gold_cost": 2
+  },
+  "Snapfire": {
+    "name": "Snapfire",
+    "class": "Knight",
+    "species": [
+      "Goblin"
+    ],
+    "gold_cost": 4
+  },
+  "Sniper": {
+    "name": "Sniper",
+    "class": "Hunter",
+    "species": [
+      "Dwarf"
+    ],
+    "gold_cost": 2
+  },
+  "Spectre": {
+    "name": "Spectre",
+    "class": "Demon Hunter",
+    "species": [
+      "Undead"
+    ],
+    "gold_cost": 5
+  },
+  "Spirit Breaker": {
+    "name": "Spirit Breaker",
+    "class": "Assassin",
+    "species": [
+      "Tauren"
+    ],
+    "gold_cost": 1
+  },
+  "Storm Spirit": {
+    "name": "Storm Spirit",
+    "class": "Mage",
+    "species": [
+      "Pandaren"
+    ],
+    "gold_cost": 4
+  },
+  "Sven": {
+    "name": "Sven",
+    "class": "Warrior",
+    "species": [
+      "Demon"
+    ],
+    "gold_cost": 5
+  },
+  "Techies": {
+    "name": "Techies",
+    "class": "Mech",
+    "species": [
+      "Goblin"
+    ],
+    "gold_cost": 5
+  },
+  "Templar Assassin": {
+    "name": "Templar Assassin",
+    "class": "Assassin",
+    "species": [
+      "Elf"
+    ],
+    "gold_cost": 5
+  },
+  "Terrorblade": {
+    "name": "Terrorblade",
+    "class": "Demon Hunter",
+    "species": [
+      "Demon"
+    ],
+    "gold_cost": 3
+  },
+  "Tidehunter": {
+    "name": "Tidehunter",
+    "class": "Hunter",
+    "species": [
+      "Naga"
+    ],
+    "gold_cost": 5
+  },
+  "Timbersaw": {
+    "name": "Timbersaw",
+    "class": "Mech",
+    "species": [
+      "Goblin"
+    ],
+    "gold_cost": 2
+  },
+  "Tinker": {
+    "name": "Tinker",
+    "class": "Mech",
+    "species": [
+      "Goblin"
+    ],
+    "gold_cost": 1
+  },
+  "Tiny": {
+    "name": "Tiny",
+    "class": "Warrior",
+    "species": [
+      "Elemental"
+    ],
+    "gold_cost": 1
+  },
+  "Treant Protector": {
+    "name": "Treant Protector",
+    "class": "Druid",
+    "species": [
+      "Elf"
+    ],
+    "gold_cost": 3
+  },
+  "Troll Warlord": {
+    "name": "Troll Warlord",
+    "class": "Warrior",
+    "species": [
+      "Troll"
+    ],
+    "gold_cost": 5
+  },
+  "Tusk": {
+    "name": "Tusk",
+    "class": "Warrior",
+    "species": [
+      "Beast"
+    ],
+    "gold_cost": 1
+  },
+  "Undying": {
+    "name": "Undying",
+    "class": "Priest",
+    "species": [
+      "Undead"
+    ],
+    "gold_cost": 3
+  },
+  "Vengeful Spirit": {
+    "name": "Vengeful Spirit",
+    "class": "Demon Hunter",
+    "species": [
+      "Undead"
+    ],
+    "gold_cost": 1
+  },
+  "Venomancer": {
+    "name": "Venomancer",
+    "class": "Warlock",
+    "species": [
+      "Beast",
+      "Aqir"
+    ],
+    "gold_cost": 3
+  },
+  "Viper": {
+    "name": "Viper",
+    "class": "Assassin",
+    "species": [
+      "Dragon"
+    ],
+    "gold_cost": 3
+  },
+  "Visage": {
+    "name": "Visage",
+    "class": "Hunter",
+    "species": [
+      "Undead",
+      "Dragon"
+    ],
+    "gold_cost": 2
+  },
+  "Void Spirit": {
+    "name": "Void Spirit",
+    "class": "Monk",
+    "species": [
+      "Pandaren"
+    ],
+    "gold_cost": 4
+  },
+  "Warlock": {
+    "name": "Warlock",
+    "class": "Warlock",
+    "species": [
+      "Orc"
+    ],
+    "gold_cost": 5
+  },
+  "Windranger": {
+    "name": "Windranger",
+    "class": "Hunter",
+    "species": [
+      "Elf"
+    ],
+    "gold_cost": 2
+  },
+  "Winter Wyvern": {
+    "name": "Winter Wyvern",
+    "class": "Mage",
+    "species": [
+      "Undead",
+      "Dragon"
+    ],
+    "gold_cost": 1
+  },
+  "Witch Doctor": {
+    "name": "Witch Doctor",
+    "class": "Warlock",
+    "species": [
+      "Troll"
+    ],
+    "gold_cost": 1
+  },
+  "Wraith King": {
+    "name": "Wraith King",
+    "class": "Warrior",
+    "species": [
+      "Undead"
+    ],
+    "gold_cost": 2
+  },
+  "Zeus": {
+    "name": "Zeus",
+    "class": "Mage",
+    "species": [
+      "God"
+    ],
+    "gold_cost": 5
+  }
+}
