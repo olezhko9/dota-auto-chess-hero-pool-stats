@@ -32,9 +32,9 @@ def crop_hero_text(image):
 
 
 if __name__ == '__main__':
-    from dac.ocr import heroes_on_image
+    from dota_auto_chess.ocr import heroes_on_image
 
-    images_path = '../images/'
+    images_path = '../../images/'
     unique_hero_img_count = 0
     for filename in os.listdir(images_path):
         filename = os.path.join(images_path, filename)

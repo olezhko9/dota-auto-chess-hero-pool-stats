@@ -3,8 +3,8 @@ import pytesseract
 import cv2
 import numpy as np
 from PIL import Image
-from util.img_croper import crop_hero_text
-from dac.hero_list import all_heroes
+from dota_auto_chess.util.img_croper import crop_hero_text
+from dota_auto_chess.hero_list import all_heroes
 
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 

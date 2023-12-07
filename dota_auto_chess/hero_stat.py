@@ -1,10 +1,10 @@
 import os
 import time
 import numpy as np
-from dac.ocr import heroes_on_image
-from util.sreenshooter import screenshot
-from util.bar_plotter import plot_bar
-from dac.hero_list import all_heroes
+from dota_auto_chess.ocr import heroes_on_image
+from dota_auto_chess.util.sreenshooter import screenshot
+from dota_auto_chess.util.bar_plotter import plot_bar
+from dota_auto_chess.hero_list import all_heroes
 
 
 def get_stat_from_screen_with_ocr():
@@ -77,9 +77,9 @@ def get_stat_from_files_with_ocr():
 
 
 def get_stat_from_screen_with_cnn():
-    from dac.cnn.cifar_nn import CifarNet
-    from util.img_croper import crop_heroes
-    from dac.hero_list import all_heroes
+    from dota_auto_chess.cnn.cifar_nn import CifarNet
+    from dota_auto_chess.util.img_croper import crop_heroes
+    from dota_auto_chess.hero_list import all_heroes
 
     cifar = CifarNet()
     cifar.load_model()

@@ -8,7 +8,7 @@ from keras.layers.convolutional import Conv2D, MaxPooling2D
 from keras.utils import np_utils
 from keras.optimizers import SGD
 from keras.models import model_from_json
-from dac.hero_list import all_heroes
+from dota_auto_chess.hero_list import all_heroes
 
 np.random.seed(42)
 

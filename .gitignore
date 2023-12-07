@@ -5,4 +5,4 @@ __pycache__
 images
 
 heroes.html
-dac/cnn/data_collector.py
+dota_auto_chess/cnn/data_collector.py
