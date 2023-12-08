@@ -1,13 +1,22 @@
-from dota_auto_chess.hero_stat import get_stat_from_files_with_ocr, get_stat_from_screen_with_ocr, get_stat_from_screen_with_cnn
+import time
+from dota_auto_chess.util import screenshot
+from dota_auto_chess.ocr import recognize_heroes as recognize_heroes_ocr
+from dota_auto_chess.stat import update_heroes_stat, plot_bar
+
 
 if __name__ == '__main__':
-    # get_stat_from_files_with_ocr()
-    get_stat_from_screen_with_ocr()
-    # get_stat_from_screen_with_cnn()
+    prev_heroes = []
 
-    # TODO: implement algorithm similar to
-    # while True:
-    #     sleep(1)
-    #     img = get_image()
-    #     heroes = get_heroes_from_image()
-    #     append_to_plot()
+    while True:
+        time.sleep(0.05)
+        screen = screenshot.take_screenshot()
+
+        heroes_names_box = (360, 380, 1210, 25)
+        heroes = recognize_heroes_ocr(screen, heroes_names_box)
+
+        if len(heroes) == 5 and prev_heroes != heroes:
+            print(heroes)
+
+            stat = update_heroes_stat(heroes)
+            plot_bar('heroes.html', *stat)
+            prev_heroes = heroes
